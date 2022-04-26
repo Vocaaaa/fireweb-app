@@ -29,19 +29,22 @@ if(token) {
     }
   })
 }
+// html elements
 
-const loginForm = document.getElementById("loginForm");
+const loginForm = document.getElementById('loginForm')
+// lots of code
 
-// The many of codes
-loginForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-
+loginForm.addEventListener('submit', (e)=>{
+  e.preventDefault()
   signInWithEmailAndPassword(auth, e.target.email.value, e.target.password.value)
-  .then((cred) => {
-    return cred.user.getIdToken();
-  }).then((token) => {
-    localStorage.setItem("token", token);
-  }).catch((err) => {
-    if(err)throw err;
+  .then((cred)=>{
+    return cred.user.getIdToken()
+  }).then((token)=>{
+    document.cookie = `Bearer ${token}`
+    window.location.href = '/profile'
+  }) 
+  .catch((err)=>{
+    if(err)throw err
   })
+  
 })

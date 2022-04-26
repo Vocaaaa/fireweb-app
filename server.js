@@ -14,7 +14,6 @@ server.use(layout);
 server.use(express.urlencoded({extended: true}));
 server.use(cookieParser());
 server.use(express.json());
-server.use(decodeIDToken);
 server.use("/", indexRouter);
 
 server.listen(process.env.PORT, () => {
