@@ -42,6 +42,6 @@ loginForm.addEventListener("submit", (e) => {
   }).then((token) => {
     localStorage.setItem("token", token);
   }).catch((err) => {
-    if(err)throw err
+    if(err)throw err;
   })
 })
